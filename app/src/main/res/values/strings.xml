@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PantryA</string>
+    <string name="usuario">Usuario</string>
+    <string name="passwordlog">Contraseña</string>
+    <string name="login">LOGIN</string>
+    <string name="registrar">Registrar</string>
+    <string name="username">Nombre de Usuario</string>
+    <string name="email">E-mail</string>
+    <string name="direccion">Direccion</string>
+    <string name="passwordreg">Contraseña</string>
+    <string name="ingresar">Ingresar</string>
+</resources>

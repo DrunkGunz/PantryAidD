@@ -15,37 +15,37 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class Insertar extends AppCompatActivity {
 
-
     TextInputEditText textInputEditTextUsername , textInputEditTextEmail, textInputEditTextDireccion, textInputEditTextPassword;
     Button buttonRegistrar, buttonLogon;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insertar);
-
         textInputEditTextUsername = findViewById(R.id.usuarioR);
         textInputEditTextEmail = findViewById(R.id.emailR);
         textInputEditTextDireccion = findViewById(R.id.direccionR);
         textInputEditTextPassword = findViewById(R.id.passwordR);
-
         buttonRegistrar = findViewById(R.id.btnSignUp);
         buttonLogon = findViewById(R.id.btnLogon);
 
+        buttonLogon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         buttonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String username, email, direccion, password;
                 username = String.valueOf(textInputEditTextUsername.getText());
                 email = String.valueOf(textInputEditTextEmail.getText());
                 direccion = String.valueOf(textInputEditTextDireccion.getText());
                 password = String.valueOf(textInputEditTextPassword.getText());
-
                 if (!username.equals("") && !email.equals("") && !direccion.equals("") && !password.equals("")) {
-
                     Handler handler = new Handler(Looper.getMainLooper());
                     handler.post(new Runnable() {
                         @Override
@@ -61,7 +61,6 @@ public class Insertar extends AppCompatActivity {
                             data[1] = email;
                             data[2] = direccion;
                             data[3] = password;
-
                             PutData putData = new PutData("http://192.168.18.7/loginsign/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {

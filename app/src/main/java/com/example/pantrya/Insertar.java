@@ -61,7 +61,7 @@ public class Insertar extends AppCompatActivity {
                             data[1] = email;
                             data[2] = direccion;
                             data[3] = password;
-                            PutData putData = new PutData("http://192.168.18.7/loginsign/signup.php", "POST", field, data);
+                            PutData putData = new PutData("https://pantryaidphp.000webhostapp.com/loginsign/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();

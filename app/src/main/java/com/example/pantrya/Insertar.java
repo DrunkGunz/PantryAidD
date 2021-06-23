@@ -65,7 +65,7 @@ public class Insertar extends AppCompatActivity implements AdapterView.OnItemSel
         spinnerProvincia = findViewById(R.id.spnProvincia);
         spinnerComuna = findViewById(R.id.spnComuna);
 
-        String url = "http://192.168.18.7/loginsign/obtnrRegion.php";
+        String url = "https://pantryaidphp.000webhostapp.com/loginsign/obtnrRegion.php";
 
 
         //Rellenar-> rellena el spinner
@@ -135,7 +135,7 @@ public class Insertar extends AppCompatActivity implements AdapterView.OnItemSel
                             data[2] = direccion;
                             data[3] = password;
                             data[4] = codCO;
-                            PutData putData = new PutData("http://192.168.18.7/loginsign/signup.php", "POST", field, data);
+                            PutData putData = new PutData("https://pantryaidphp.000webhostapp.com/loginsign/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();
@@ -164,7 +164,7 @@ public class Insertar extends AppCompatActivity implements AdapterView.OnItemSel
             case R.id.spnRegion:
                     listaProvincia.clear();
                     String selectdRegion = adapterView.getSelectedItem().toString();
-                    String url = "http://192.168.18.7/loginsign/obtnrProvin.php?selectdRegion="+selectdRegion;
+                    String url = "https://pantryaidphp.000webhostapp.com/loginsign/obtnrProvin.php?selectdRegion="+selectdRegion;
                     requestQueue = Volley.newRequestQueue(this);
                     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
                         @Override
@@ -195,7 +195,7 @@ public class Insertar extends AppCompatActivity implements AdapterView.OnItemSel
             case R.id.spnProvincia:
                     listaComuna.clear();
                     String selectdProvin = adapterView.getSelectedItem().toString();
-                     url = "http://192.168.18.7/loginsign/obtnrComu.php?selectdProvin="+selectdProvin;
+                     url = "https://pantryaidphp.000webhostapp.com/loginsign/obtnrComu.php?selectdProvin="+selectdProvin;
                     requestQueue = Volley.newRequestQueue(this);
                         jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
                             @Override

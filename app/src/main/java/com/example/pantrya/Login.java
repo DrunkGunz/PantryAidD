@@ -2,7 +2,9 @@ package com.example.pantrya;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -16,7 +18,7 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 public class Login extends AppCompatActivity {
     TextInputEditText textInputEditTextUsername , textInputEditTextPassword;
     Button buttonRegistrar, buttonLogon;
-
+    String username, password;
 
 
     @Override
@@ -29,7 +31,7 @@ public class Login extends AppCompatActivity {
 
         buttonRegistrar = findViewById(R.id.btnRegist);
         buttonLogon = findViewById(R.id.btnLogin);
-
+        fetchPref();
 
 
         buttonRegistrar.setOnClickListener(new View.OnClickListener() {
@@ -41,11 +43,12 @@ public class Login extends AppCompatActivity {
 
             }
         });
+
         buttonLogon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String username, password;
+
                 username = String.valueOf(textInputEditTextUsername.getText());
                 password = String.valueOf(textInputEditTextPassword.getText());
 
@@ -68,8 +71,9 @@ public class Login extends AppCompatActivity {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();
                                     if (result.equals("Login Success")){
+                                        guardarPref();
                                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        Intent intent = new Intent(getApplicationContext(), Pantry.class);
                                         startActivity(intent);
                                         finish();
                                     }else   {
@@ -85,4 +89,32 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
+    private void guardarPref(){
+        SharedPreferences pref = getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("usuario",username);
+        editor.putString("password",password);
+        editor.putBoolean("sesion", true);
+        editor.commit();
+    }
+
+    private void fetchPref(){
+        SharedPreferences pref = getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
+        textInputEditTextUsername.setText(pref.getString("usuario", ""));
+        textInputEditTextPassword.setText(pref.getString("password", ""));
+
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+

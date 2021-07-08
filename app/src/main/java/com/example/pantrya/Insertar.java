@@ -230,7 +230,6 @@ public class Insertar extends AppCompatActivity implements AdapterView.OnItemSel
             case  R.id.spnComuna:
                 String nombCom = adapterView.getItemAtPosition(position).toString();
                 codCO = hmComuna.get(nombCom);
-                Toast.makeText(this, "aa", Toast.LENGTH_SHORT).show();
                 break;
 
         }

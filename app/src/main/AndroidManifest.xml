@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PantryA"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Pantry"></activity>
+        <activity android:name=".ManageIngrediente"></activity>
+        <activity android:name=".Pantry" />
         <activity android:name=".Login" />
         <activity android:name=".Insertar" />
         <activity android:name=".RedirectAct">
@@ -23,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

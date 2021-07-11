@@ -72,10 +72,28 @@ public class Login extends AppCompatActivity {
                                     String result = putData.getResult();
                                     if (result.equals("Login Success")){
                                         guardarPref();
-                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                        PutData put = new PutData("https://pantryaidphp.000webhostapp.com/loginsign/redirect.php","POST", field,data);
+                                        if (put.startPut()){
+                                            if (put.onComplete()){
+                                                String res = put.getResult();
+                                                if (res.equals("pantry")){
+                                                    guardarRedirect();
+                                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent(getApplicationContext(), Pantry.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }else if (res.equals("fillpantry")){
+                                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent(getApplicationContext(), ManageIngrediente.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }
+                                            }
+                                        }
+                                        /*Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), Pantry.class);
                                         startActivity(intent);
-                                        finish();
+                                        finish();*/
                                     }else   {
                                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                                     }
@@ -96,6 +114,14 @@ public class Login extends AppCompatActivity {
         editor.putString("usuario",username);
         editor.putString("password",password);
         editor.putBoolean("sesion", true);
+        editor.putBoolean("redirect", false);
+        editor.commit();
+    }
+
+    private void guardarRedirect(){
+        SharedPreferences pref = getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putBoolean("redirect", true);
         editor.commit();
     }
 

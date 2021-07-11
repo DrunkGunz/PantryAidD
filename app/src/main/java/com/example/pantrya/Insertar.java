@@ -190,6 +190,7 @@ public class Insertar extends AppCompatActivity implements AdapterView.OnItemSel
                     });
                     requestQueue.add(jsonObjectRequest);
                     spinnerProvincia.setOnItemSelectedListener(this);
+
                 break;
 
             case R.id.spnProvincia:

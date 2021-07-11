@@ -27,9 +27,18 @@ public class RedirectAct extends AppCompatActivity {
                 SharedPreferences pref = getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
                 boolean sesion = pref.getBoolean("sesion", false);
                 if (sesion){
-                    Intent intent = new Intent(getApplicationContext(),Pantry.class);
-                    startActivity(intent);
-                    finish();
+                    boolean red = pref.getBoolean("redirect",false);
+                    if (red){
+                        Intent intent = new Intent(getApplicationContext(),Pantry.class);
+                        startActivity(intent);
+                        finish();
+                    }else {
+                        Intent intent = new Intent(getApplicationContext(),ManageIngrediente.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
+
                 }else{
                     Intent intent = new Intent(getApplicationContext(),Login.class);
                     startActivity(intent);

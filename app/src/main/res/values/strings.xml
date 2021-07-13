@@ -9,4 +9,18 @@
     <string name="direccion">Direccion</string>
     <string name="passwordreg">Contraseña</string>
     <string name="ingresar">Ingresar</string>
+    <string name="AñadirDesp">Añadir ingredientes a despensa</string>
+    <string name="ingrediente">Ingrediente</string>
+    <string name="envase">Envase</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="stock_minimo">Stock Minimo</string>
+    <string name="añadirenvase">Añadir nuevo envase</string>
+    <string name="añadirIngrediente">Añadadir Ingrediente a despensa</string>
+    <string name="insertar_envase_diferente">Insertar Envase diferente</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="cantidad_de_gramos">Cantidad de gramos</string>
+    <string name="a_adir_nuevo_envase">Añadir Envase Nuevo</string>
+    <string name="listo">Listo</string>
+    <string name="asociar_envase_con_ingrediente">Asociar envase con ingrediente</string>
+    <string name="asociar_envase">Asociar envase</string>
 </resources>

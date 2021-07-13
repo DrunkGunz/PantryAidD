@@ -23,6 +23,7 @@ import com.example.pantrya.dal.DespensaAdapt;
 import com.example.pantrya.dal.DespensaDAL;
 import com.example.pantrya.dto.Despensa;
 import com.example.pantrya.dal.DespensaDAL;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,7 +54,6 @@ public class Pantry extends AppCompatActivity {
         String url = "https://pantryaidphp.000webhostapp.com/loginsign/obtnrDesp.php?codU="+usuario;
         listView = findViewById(R.id.listViewPantry);
         despensaList = new ArrayList<>();
-
         llenarDesp(url);
 
 
@@ -71,6 +71,15 @@ public class Pantry extends AppCompatActivity {
             }
         });
 
+        FloatingActionButton fabAddIng = (FloatingActionButton) findViewById(R.id.fabAddIng);
+        fabAddIng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ManageIngrediente.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
 

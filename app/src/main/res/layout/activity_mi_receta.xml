@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Pantry">
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="608dp"
-        android:text="Cerrar Sesion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.28"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42000002" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="410dp"
@@ -34,7 +21,7 @@
 
 
         <ListView
-            android:id="@+id/listViewPantry"
+            android:id="@+id/listViewReceta"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
@@ -51,12 +38,12 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddIng"
+        android:id="@+id/fabAddrec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:contentDescription="Añadir_Ingrediente"
+        android:contentDescription="@string/addreceta"
         android:src="@drawable/ic_add"
         app:backgroundTint="#9575CD"
         app:maxImageSize="40dp"

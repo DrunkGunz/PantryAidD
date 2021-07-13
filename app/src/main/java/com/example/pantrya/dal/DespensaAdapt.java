@@ -26,7 +26,6 @@ import java.util.List;
 
 public class DespensaAdapt extends ArrayAdapter<Despensa> {
     private  List<Despensa> despensaList;
-    private Bitmap bitmap;
     private Context mCtx;
 
     public DespensaAdapt( List<Despensa> despensaList, Context mCtx) {
@@ -54,7 +53,7 @@ public class DespensaAdapt extends ArrayAdapter<Despensa> {
 
         //setting hero values to textviews
         textViewName.setText(desp.getIngrediente());
-        textViewCantidad.setText(desp.getCantidad());
+        textViewCantidad.setText("Cantidad: "+desp.getCantidad());
         textViewEnvaseActual.setText(desp.getGramo());
 
         //returning the listitem

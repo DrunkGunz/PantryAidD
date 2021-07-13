@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PantryA"
         android:usesCleartextTraffic="true">
-        <activity android:name=".addEnvase"></activity>
+        <activity android:name=".RecetaIngrediente"></activity>
+        <activity android:name=".ManageReceta" />
+        <activity android:name=".MiReceta" />
+        <activity android:name=".addEnvase" />
         <activity android:name=".ManageIngrediente" />
         <activity android:name=".Pantry" />
         <activity android:name=".Login" />

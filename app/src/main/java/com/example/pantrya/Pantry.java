@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -17,12 +16,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.pantrya.dal.DespensaAdapt;
-import com.example.pantrya.dal.DespensaDAL;
 import com.example.pantrya.dto.Despensa;
-import com.example.pantrya.dal.DespensaDAL;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
@@ -38,7 +34,7 @@ public class Pantry extends AppCompatActivity {
     ListView listView;
     //DespensaDAL despensaDAL = new DespensaDAL();
     String usuario;
-    Button btnLout;
+    Button btnLout, buttonMireceta;
     List<Despensa> despensaList;
 
     RequestQueue requestQueue;
@@ -47,6 +43,7 @@ public class Pantry extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantry);
+        buttonMireceta = findViewById(R.id.btnMisRecetas);
         btnLout = findViewById(R.id.btnLogout);
         SharedPreferences pref = getSharedPreferences("prefLogin", Context.MODE_PRIVATE);
         usuario = pref.getString("usuario", "");
@@ -55,7 +52,14 @@ public class Pantry extends AppCompatActivity {
         listView = findViewById(R.id.listViewPantry);
         despensaList = new ArrayList<>();
         llenarDesp(url);
-
+        buttonMireceta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MiReceta.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         btnLout.setOnClickListener(new View.OnClickListener() {

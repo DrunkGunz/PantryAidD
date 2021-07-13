@@ -34,24 +34,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/border_layout">
 
         <TextView
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
-            android:paddingHorizontal="30dp"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
             android:text="title"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
     </LinearLayout>
+
     <TextView
         android:id="@+id/textViewCantidad"
         android:layout_width="match_parent"
-        android:paddingHorizontal="30dp"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
+        android:paddingHorizontal="30dp"
         android:text="cantidad"
+        android:background="@drawable/border_texto"
+        android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
     <TextView
@@ -59,6 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:background="@drawable/border_texto"
         android:paddingHorizontal="30dp"
         android:text="@string/_500"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
